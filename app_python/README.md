@@ -38,6 +38,33 @@ To run the unit tests, use the following command:
 python -m unittest discover tests
 ```
 
+## Docker
+
+### Containerized Application
+
+Our application is containerized using Docker to ensure consistency and portability across different environments. It is based on a lightweight Python image and uses Gunicorn as the WSGI HTTP server.
+
+### How to Use Docker
+
+#### Building the Docker Image
+
+To build the Docker image locally, run the following command in the terminal:
+
+```bash
+docker build -t my-python-app .
+docker pull your-dockerhub-username/my-python-app:tag
+docker run -d --name my-container your-dockerhub-username/my-python-app:tag
+```
+
+#CI Workflow
+
+This repository is integrated with GitHub Actions to automate the build and test process. The CI workflow includes the following steps:
+
+**Dependencies:** Install Python dependencies required for the application.
+**Linter:** Check the code for linting errors using Flake8.
+**Tests:** Run unit tests to ensure code quality and functionality.
+**Docker Build & Push:** Build a Docker image of the application and push it to Docker Hub.
+
 # Contribution
 Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
@@ -46,4 +73,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Feel free to customize the README.md file further with additional details specific to your project. Ensure that the `.gitignore` file is properly configured to exclude unnecessary files and directories from version control. Additionally, maintain a concise `requirements.txt` file listing only the required dependencies for easy installation.
